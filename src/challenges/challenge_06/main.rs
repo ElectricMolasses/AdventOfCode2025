@@ -64,32 +64,7 @@ pub fn run_challenge_06_00(input_name: &str) -> u64 {
     sum
 }
 
-fn parse_problems_v2(input: &str) -> Vec<Problem> {
-    let mut problems: Vec<Problem> = Vec::new();
-    let mut columns: Vec<Vec<Vec<char>>> = Vec::new();
-
-    for (idx, line) in input.lines().enumerate() {
-        if idx == 0 {
-            for _ in line.split_whitespace() {
-                problems.push(Problem {
-                    numbers: Vec::new(),
-                    operator: Operator::NONE,
-                });
-                columns.push(Vec::new());
-            }
-        }
-        for (idx, item) in line.split_whitespace().enumerate() {
-            if item.parse::<u64>().is_err() {
-                problems[idx].operator = match item {
-                    "*" => Operator::MUL,
-                    "+" => Operator::ADD,
-                    _ => panic!("Unrecognized operator parse!")
-                };
-                continue;
-            }
-        }
-    }
-
+fn find_lexical_digit_ranges(input: &str) -> Vec<(usize, usize)> {
     let mut column_ranges: Vec<(usize, usize)> = Vec::new();
 
     for (line_idx, line) in input.lines().enumerate() {
@@ -120,6 +95,37 @@ fn parse_problems_v2(input: &str) -> Vec<Problem> {
             }
         } 
     }
+
+    column_ranges
+}
+
+fn parse_problems_v2(input: &str) -> Vec<Problem> {
+    let mut problems: Vec<Problem> = Vec::new();
+    let mut columns: Vec<Vec<Vec<char>>> = Vec::new();
+
+    for (idx, line) in input.lines().enumerate() {
+        if idx == 0 {
+            for _ in line.split_whitespace() {
+                problems.push(Problem {
+                    numbers: Vec::new(),
+                    operator: Operator::NONE,
+                });
+                columns.push(Vec::new());
+            }
+        }
+        for (idx, item) in line.split_whitespace().enumerate() {
+            if item.parse::<u64>().is_err() {
+                problems[idx].operator = match item {
+                    "*" => Operator::MUL,
+                    "+" => Operator::ADD,
+                    _ => panic!("Unrecognized operator parse!")
+                };
+                continue;
+            }
+        }
+    }
+
+    let mut column_ranges: Vec<(usize, usize)> = find_lexical_digit_ranges(input);
     
     let mut numbers: Vec<Vec<u64>> = Vec::new();
 
