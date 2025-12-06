@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 use crate::util::read_by_line;
 
 pub fn run_challenge_05_00(input_name: &str) -> u64 {

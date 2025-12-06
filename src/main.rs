@@ -7,6 +7,7 @@ use crate::challenges::{
     challenge_03::main::{run_challenge_03_00,run_challenge_03_01},
     challenge_04::main::{run_challenge_04_00,run_challenge_04_01},
     challenge_05::main::{run_challenge_05_00,run_challenge_05_01},
+    challenge_06::main::{run_challenge_06_00,run_challenge_06_01},
 };
 
 fn main() {
@@ -19,5 +20,7 @@ fn main() {
     // println!("{}", run_challenge_04_00("input"));
     // println!("{}", run_challenge_04_01("input"));
     // println!("{}", run_challenge_05_00("input"));
-    println!("{}", run_challenge_05_01("input"));
+    // println!("{}", run_challenge_05_01("input"));
+    // println!("{}", run_challenge_06_00("input"));
+    println!("{}", run_challenge_06_01("input"));
 }
