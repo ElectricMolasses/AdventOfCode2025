@@ -1,3 +1,5 @@
+#[allow(warnings, unused_imports)]
+
 mod challenges;
 mod util;
 
@@ -9,6 +11,7 @@ use crate::challenges::{
     challenge_05::main::{run_challenge_05_00,run_challenge_05_01},
     challenge_06::main::{run_challenge_06_00,run_challenge_06_01},
     challenge_07::main::{run_challenge_07_00,run_challenge_07_01},
+    challenge_08::main::{run_challenge_08_00,run_challenge_08_01},
 };
 
 fn main() {
@@ -25,5 +28,7 @@ fn main() {
     // println!("{}", run_challenge_06_00("input"));
     // println!("{}", run_challenge_06_01("input"));
     // println!("{}", run_challenge_07_00("input"));
-    println!("{}", run_challenge_07_01("input"));
+    // println!("{}", run_challenge_07_01("input"));
+    // println!("{}", run_challenge_08_00("input", 1000));
+    println!("{}", run_challenge_08_01("input"));
 }
