@@ -351,10 +351,6 @@ fn create_grid_two(coords: &Vec<Coordinate>) -> Vec<Vec<Tile>> {
 }
 
 fn find_direction_clockwise(coord_a: &Coordinate, coord_b: &Coordinate, coord_c: &Coordinate) -> Direction {
-    if coord_a.x < coord.x {
-        if coord.y
-    }
-
     Direction::RIGHT
 }
 
